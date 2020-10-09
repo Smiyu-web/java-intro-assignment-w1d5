@@ -14,46 +14,50 @@ public class MathGameForTwo {
         int playerOneLives = 3;
         int playerTwoLives = 3;
 
-        while (playerOneLives > 0 || playerTwoLives > 0){
-        if (answer == 1) {
+        while (playerOneLives > 0 && playerTwoLives > 0){
+            if (answer == 1) {
 
-            byte firstNum = (byte)(Math.random());
-            byte secondNum = (byte)(Math.random());
+                int firstNum = (int)(Math.random() * 100);
+                int secondNum = (int)(Math.random() * 100);
 
-            System.out.println("Player 1: what is " + firstNum + " + " + secondNum);
-            byte playerOneAnswer = input.nextByte();
-            
-            if (playerOneAnswer == (firstNum + secondNum)) {
-                System.out.println("Correct!");
-                System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                System.out.println("Player 1: what is " + firstNum + " + " + secondNum);
+                int playerOneAnswer = input.nextInt();
+                
+                if (playerOneAnswer == (firstNum + secondNum)) {
+                    System.out.println("Correct!");
+                    System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                } else {
+                    System.out.println("Incorrect! The answer was " + (firstNum + secondNum) + ".");
+                    playerOneLives--;
+                    System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                }
+
+                int thirdNum = (int)(Math.random() * 100);
+                int forthNum = (int)(Math.random() * 100);
+
+                System.out.println("Player 2: what is " + thirdNum + " + " + forthNum);
+                int playerTwoAnswer = input.nextInt();
+                
+                if (playerTwoAnswer == (thirdNum + forthNum)) {
+                    System.out.println("Correct!");
+                    System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                } else {
+                    System.out.println("Incorrect! The answer was " + (thirdNum + forthNum) + ".");
+                    playerTwoLives--;
+                    System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                }   
+
             } else {
-                System.out.println("Incorrect! The answer was " + (firstNum + secondNum) + ".");
-                playerOneLives--;
-                System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
+                System.out.println("See you!");
+                break;
             }
-
-            System.out.println("Player 2: what is " + firstNum + " + " + secondNum);
-            byte playerTwoAnswer = input.nextByte();
-            
-            if (playerTwoAnswer == (firstNum + secondNum)) {
-                System.out.println("Correct!");
-                System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
-            } else {
-                System.out.println("Incorrect! The answer was " + (firstNum + secondNum) + ".");
-                playerTwoLives--;
-                System.out.println("The lives: Player 1: " + playerOneLives + "/3 Player 2: " + playerTwoLives + "/3");
-            }
-
-        } else {
-            System.out.println("See you!");
-            break;
         }
-        }
+
         if (playerOneLives == 0) {
             System.out.println("Player2 won!");
         } else {
             System.out.println("Player1 won!");
-        }
+        } 
 
     }
 }
